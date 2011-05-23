@@ -43,7 +43,7 @@ public class MultiShinaItemList extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.multi_shina_main);
+		setContentView(R.layout.multi_shina_item_list);
 
 		init();
 		refreshCaption();
