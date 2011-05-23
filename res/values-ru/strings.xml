@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MultiShina</string>
+    
+    <string name="brand_step">Brand</string>
+    <string name="model_step">Model</string>
+    <string name="year_step">Year</string>
+    <string name="select_type_step">Show tyres or wheels?</string>
+    <string name="tyre_size">Tyre size list</string>
+    <string name="wheel_size">Wheel size list</string>
+    <string name="tyre_catalog">Select tyre</string>
+    <string name="wheel_catalog">Select wheel</string>
+    <string name="detail_item_step">Detail information</string>
+    
+    <string name="msg_loading">Loading...</string>
+</resources>

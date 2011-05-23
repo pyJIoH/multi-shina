@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@android:id/text1" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:gravity="center_vertical" 
+		android:paddingLeft="4dip"
+		android:minHeight="54dip"
+		android:text="Maxxis MA-W2 205/65 R16 T" 
+	/>
+	<TextView android:id="@android:id/text2"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@android:id/text1"
+		android:layout_alignLeft="@android:id/text1"
+		android:paddingBottom="4dip"
+		android:paddingLeft="4dip"
+		android:includeFontPadding="false"
+		android:textSize="14sp"
+		android:textStyle="normal"
+		android:text="4321.0 руб."
+		android:visibility="gone"
+	/>
+</TwoLineListItem>
