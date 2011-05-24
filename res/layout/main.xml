@@ -23,6 +23,7 @@
 			android:text="Подбор шин и дисков по автомобилю" 
 			android:background="@layout/blackbutton" 
 			style="@style/ButtonTextStyle"
+			android:onClick="onClick"
 		/>
 		<Button 
 			android:id="@+id/btn_tyreselection" 
