@@ -13,4 +13,6 @@
     <string name="detail_item_step">Detail information</string>
     
     <string name="msg_loading">Loading...</string>
+    
+    <string name="mycart">My Cart</string>
 </resources>
