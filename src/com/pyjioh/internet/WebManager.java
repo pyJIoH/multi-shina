@@ -12,7 +12,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 public class WebManager {
-
+	private static final String TAG_BR = "<br>";
+	
 	private static String getValidUrl(String url) {
 		return url.replaceAll(" ", "%20"); 
 	} 
@@ -35,6 +36,10 @@ public class WebManager {
 		in.close();
 
 		return source.toString();
+	}
+	
+	public static String replaceBrTag(String xml) {
+		return xml.replaceAll(TAG_BR, "\n");
 	}
 
 }

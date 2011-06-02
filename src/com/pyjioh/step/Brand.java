@@ -5,15 +5,15 @@ import com.pyjioh.core.DetailItem;
 
 public class Brand extends Step {
 	
-	private final static String START_URL = "http://multi-shina.ru/auto/autosearch.html";
+	private final static String START_URL = "http://multi-shina.ru/";
 	private final static DetailItem startItem = new DetailItem();
 	
 	public Brand() {
 		super(startItem);
 		startItem.setLink(START_URL);
 	}
-	
-		public int getCaptionId() {
+
+	public int getCaptionId() {
 		return R.string.brand_step;
 	}
 

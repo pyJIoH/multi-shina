@@ -7,6 +7,9 @@
 		<activity android:name=".activity.MultiShinaItemList"
 			android:label="@string/app_name">
 		</activity>
+		<activity android:name=".activity.About"
+			android:label="@string/app_name">
+		</activity>
 		<activity android:name=".activity.MultiShinaStart"
 			android:label="@string/app_name">
 			<intent-filter>

@@ -46,7 +46,7 @@ public abstract class Step {
 		Matcher matcher = getRegExpPattern().matcher(getStepHtmlSource());
 		while (matcher.find())
 			xml.append(matcher.group(0));
-		return xml.toString();
+		return WebManager.replaceBrTag(xml.toString());
 	}
 
 	private String getStepHtmlSource() throws ClientProtocolException,
@@ -82,13 +82,13 @@ public abstract class Step {
 		NodeList nodes = doc.getElementsByTagName("item");
 		for (int i = 0; i < nodes.getLength(); i++) {
 			Element element = (Element) nodes.item(i);
-			
+
 			DetailItem item = new DetailItem();
 			item.setCaption(element.getFirstChild().getNodeValue());
 			item.setImageUrl(element.getAttribute("img"));
 			item.setLink(element.getAttribute("link"));
 			item.setPrice(element.getAttribute("price"));
-			
+
 			items.add(item);
 		}
 	}

@@ -26,22 +26,11 @@
 			android:onClick="onAutoSelectionClick"
 		/>
 		<Button 
-			android:id="@+id/btn_tyreselection" 
-			android:text="Подбор шин" 
-			android:background="@layout/blackbutton" 
-			style="@style/ButtonTextStyle"
-		/>
-		<Button 
-			android:id="@+id/btn_wheelselection" 
-			android:text="Подбор дисков" 
-			android:background="@layout/blackbutton" 
-			style="@style/ButtonTextStyle"
-		/>
-		<Button 
 			android:id="@+id/btn_about" 
 			android:text="О компании" 
 			android:background="@layout/blackbutton" 
 			style="@style/ButtonTextStyle"
+			android:onClick="onAboutClick"
 		/>
 	</LinearLayout>
 </LinearLayout>

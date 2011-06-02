@@ -2,17 +2,19 @@
 <resources>
     <string name="app_name">MultiShina</string>
     
-    <string name="brand_step">Brand</string>
-    <string name="model_step">Model</string>
-    <string name="year_step">Year</string>
-    <string name="select_type_step">Show tyres or wheels?</string>
-    <string name="tyre_size">Tyre size list</string>
-    <string name="wheel_size">Wheel size list</string>
-    <string name="tyre_catalog">Select tyre</string>
-    <string name="wheel_catalog">Select wheel</string>
-    <string name="detail_item_step">Detail information</string>
+    <string name="brand_step">Бренд</string>
+    <string name="model_step">Модель</string>
+    <string name="year_step">Год выпуска</string>
+    <string name="select_type_step">Показать список шин или дисков?</string>
+    <string name="tyre_size">Типоразмер шин</string>
+    <string name="wheel_size">Типоразмер дисков</string>
+    <string name="tyre_catalog">Выберите модель шины</string>
+    <string name="wheel_catalog">Выберите модель диска</string>
+    <string name="detail_item_step">Подробная информация</string>
     
-    <string name="msg_loading">Loading...</string>
+    <string name="msg_loading">Загрузка...</string>
     
-    <string name="mycart">My Cart</string>
+    <string name="mycart">Моя корзина</string>
+
+    <string name="about_text">Вас приветствует официальное Android приложение компании <b>«МУЛЬТИ-ШИНА»</b>, оно поможет познакомиться с преимуществами нашей компании, узнать множество полезной информации по шинам и дискам, а также осуществить подбор и покупку колес, используя функцию интернет-магазина.</string>
 </resources>
