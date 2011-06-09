@@ -16,7 +16,7 @@ public class MultiShinaStart extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.multi_shina_start);
 	}
 	
 //	@Override
@@ -36,7 +36,7 @@ public class MultiShinaStart extends Activity {
 //	}
 
 	public void onAutoSelectionClick(View v) {
-		startActivity(new Intent(this, MultiShinaItemList.class));
+		startActivity(new Intent(this, ListItem.class));
 	}
 
 	public void onAboutClick(View v) {

@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="6dip">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dip"
+        android:src="@drawable/noimage" />
+    <TextView
+    	android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:gravity="center_vertical"
+        android:text="Характеристики: Бренд: MaxxisМодель: MA-P1Ширина профиля: 205.00ммСерия: 65.00%Диаметр: 16.00'Сезон: летняяШипы: нешипТип транспорта: легковойИндекс скорости: HИндекс нагрузки: 95" />
+</LinearLayout>

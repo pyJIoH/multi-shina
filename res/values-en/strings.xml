@@ -16,5 +16,5 @@
     
     <string name="mycart">My Cart</string>
 
-    <string name="about_text">Вас приветствует официальное Android приложение компании <b>«МУЛЬТИ-ШИНА»</b>, оно поможет познакомиться с преимуществами нашей компании, узнать множество полезной информации по шинам и дискам, а также осуществить подбор и покупку колес, используя функцию интернет-магазина.</string>
+    <string name="about_text">Hello, this is Android application for <a href="http://multi-shina.ru/">http://multi-shina.ru/</a>. It helps you to choose tires or wheels.</string>
 </resources>

@@ -41,7 +41,7 @@ public class AsyncContentLoader extends AsyncTask<ErrorHandler, Void, List<Detai
 	@Override
 	protected void onPostExecute(List<DetailItem> items) {
 		currentActivity.setListAdapter(stepContext.makeAdapter(currentActivity,
-				R.layout.list_item, items));
+				R.layout.single_item_caption_price, items));
 		
 		mProgressDlg.dismiss();
 	};
