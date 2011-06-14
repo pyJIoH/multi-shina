@@ -7,15 +7,15 @@
 	android:background="@color/background">
 	<ImageView 
 		android:id="@+id/imageView" 
-    	android:src="@drawable/logo" 
-    	android:layout_width="fill_parent" 
-    	android:layout_height="wrap_content"
-    	android:scaleType="fitXY"
-    />
+		android:src="@drawable/logo" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:scaleType="fitXY"
+	/>
 	<LinearLayout 
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
+		android:layout_height="fill_parent" 
 		android:layout_gravity="center" 
 		android:padding="42dip">
 		<Button 
@@ -23,14 +23,12 @@
 			android:text="Подбор шин и дисков по автомобилю" 
 			android:background="@layout/blackbutton" 
 			style="@style/ButtonTextStyle"
-			android:onClick="onAutoSelectionClick"
-		/>
+			android:onClick="onAutoSelectionClick"/>
 		<Button 
 			android:id="@+id/btn_about" 
 			android:text="О компании" 
 			android:background="@layout/blackbutton" 
 			style="@style/ButtonTextStyle"
-			android:onClick="onAboutClick"
-		/>
+			android:onClick="onAboutClick"/>
 	</LinearLayout>
 </LinearLayout>

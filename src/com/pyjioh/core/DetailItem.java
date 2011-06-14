@@ -1,10 +1,13 @@
 package com.pyjioh.core;
 
+import android.graphics.Bitmap;
+
 public class DetailItem {
 	private String imageUrl;
 	private String link;
 	private String price;
 	private String caption;
+	private Bitmap bitmap;
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
@@ -37,4 +40,13 @@ public class DetailItem {
 	public String getCaption() {
 		return caption;
 	}
+
+	public void setBitmap(Bitmap bitmap) {
+		this.bitmap = bitmap;
+	}
+
+	public Bitmap getBitmap() {
+		return bitmap;
+	}
+
 }

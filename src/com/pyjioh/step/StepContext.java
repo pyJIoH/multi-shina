@@ -9,8 +9,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.apache.http.client.ClientProtocolException;
 import org.xml.sax.SAXException;
 
-import android.content.Context;
-import android.widget.ArrayAdapter;
+import android.app.Activity;
+import android.content.Intent;
 
 import com.pyjioh.core.DetailItem;
 
@@ -49,9 +49,10 @@ public class StepContext {
 		currentStep.loadContent();
 	}
 
-	public void selectItem(String itemCaption) {
+	public void selectItem(Activity activity, String itemCaption) {
 		DetailItem item = currentStep.getItem(itemCaption);
 		currentStep.next(item);
+		activity.startActivity(new Intent(activity, currentStep.getActivityClass()));
 	}
 
 	public void back() {
@@ -60,9 +61,8 @@ public class StepContext {
 			currentStep = steps.get(steps.size() - 1);
 	}
 
-	public ArrayAdapter<DetailItem> makeAdapter(Context context,
-			int textViewResourceId, List<DetailItem> items) {
-		return currentStep.makeAdapter(context, textViewResourceId, items);
+	public void afterLoadContent(Activity activity, List<DetailItem> items) {
+		currentStep.afterLoadContent(activity, items);
 	}
 
 }

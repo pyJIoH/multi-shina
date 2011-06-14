@@ -1,6 +1,7 @@
 package com.pyjioh.step;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,18 +12,31 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 
-import com.pyjioh.adapter.CaptionItemArrayAdapter;
+import com.pyjioh.R;
+import com.pyjioh.activity.ListItemActivity;
+import com.pyjioh.adapter.CaptionArrayAdapter;
 import com.pyjioh.core.DetailItem;
+import com.pyjioh.core.ErrorHandler;
 import com.pyjioh.internet.WebManager;
 
 /**
@@ -89,8 +103,54 @@ public abstract class Step {
 			item.setLink(element.getAttribute("link"));
 			item.setPrice(element.getAttribute("price"));
 
+			if (isNeedDownloadImage() && item.getImageUrl() != null)
+				item.setBitmap(downloadBitmap(item.getImageUrl()));
 			items.add(item);
 		}
+	}
+
+	protected boolean isNeedDownloadImage() {
+		return false;
+	}
+
+	private Bitmap downloadBitmap(String url) {
+		final DefaultHttpClient client = new DefaultHttpClient();
+		final HttpGet getRequest = new HttpGet(url);
+
+		try {
+			HttpResponse response = client.execute(getRequest);
+			final int statusCode = response.getStatusLine().getStatusCode();
+			if (statusCode != HttpStatus.SC_OK) {
+				Log.w(ErrorHandler.LOG_TAG, "Error " + statusCode
+						+ " while retrieving bitmap from " + url);
+				return null;
+			}
+
+			final HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				InputStream inputStream = null;
+				try {
+					inputStream = entity.getContent();
+					final Bitmap bitmap = BitmapFactory
+							.decodeStream(inputStream);
+					return bitmap;
+				} finally {
+					if (inputStream != null) {
+						inputStream.close();
+					}
+					entity.consumeContent();
+				}
+			}
+		} catch (Exception e) {
+			getRequest.abort();
+			Log.w(ErrorHandler.LOG_TAG, "Error while retrieving bitmap from "
+					+ url, e);
+		} finally {
+			// if (client != null) {
+			// client.close();
+			// }
+		}
+		return null;
 	}
 
 	public DetailItem getItem(String itemName) {
@@ -109,9 +169,18 @@ public abstract class Step {
 
 	abstract public int getCaptionId();
 
-	public ArrayAdapter<DetailItem> makeAdapter(Context context,
+	protected ArrayAdapter<DetailItem> makeAdapter(Context context,
 			int textViewResourceId, List<DetailItem> items) {
-		return new CaptionItemArrayAdapter(context, textViewResourceId, items);
+		return new CaptionArrayAdapter(context, textViewResourceId, items);
+	}
+
+	public Class<?> getActivityClass() {
+		return ListItemActivity.class;
+	}
+
+	public void afterLoadContent(Activity activity, List<DetailItem> items) {
+		((ListActivity) activity).setListAdapter(makeAdapter(activity,
+				R.layout.single_item_caption_price, items));
 	}
 
 }

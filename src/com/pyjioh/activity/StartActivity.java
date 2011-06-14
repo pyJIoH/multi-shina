@@ -10,7 +10,7 @@ import android.os.Bundle;
 //import android.view.MenuItem;
 import android.view.View;
 
-public class MultiShinaStart extends Activity {
+public class StartActivity extends Activity {
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -36,11 +36,11 @@ public class MultiShinaStart extends Activity {
 //	}
 
 	public void onAutoSelectionClick(View v) {
-		startActivity(new Intent(this, ListItem.class));
+		startActivity(new Intent(this, ListItemActivity.class));
 	}
 
 	public void onAboutClick(View v) {
-		startActivity(new Intent(this, About.class));
+		startActivity(new Intent(this, AboutActivity.class));
 	}
 
 }

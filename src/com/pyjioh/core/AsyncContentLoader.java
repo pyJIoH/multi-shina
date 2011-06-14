@@ -2,7 +2,7 @@ package com.pyjioh.core;
 
 import java.util.List;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
@@ -12,19 +12,27 @@ import com.pyjioh.step.StepContext;
 public class AsyncContentLoader extends AsyncTask<ErrorHandler, Void, List<DetailItem>> {
 	private ProgressDialog mProgressDlg;
 	private StepContext stepContext = StepContext.getInstance();
-	private ListActivity currentActivity;
+	private Activity currentActivity;
 
-	public AsyncContentLoader(ListActivity activity) {
-		currentActivity = activity;
-	}
-	
-	@Override
-	protected void onPreExecute() {
+	private void showProgressDialog() {
 		mProgressDlg = ProgressDialog.show(currentActivity, null,
 				currentActivity.getText(R.string.msg_loading));
 		mProgressDlg.setIndeterminate(true);
 		mProgressDlg.setCancelable(true);
 		mProgressDlg.show();
+	}
+	
+	private void dismissProgressDialog() {
+		mProgressDlg.dismiss();
+	}
+	
+	public AsyncContentLoader(Activity activity) {
+		currentActivity = activity;
+	}
+	
+	@Override
+	protected void onPreExecute() {
+		showProgressDialog();
 	}
 
 	@Override
@@ -40,9 +48,8 @@ public class AsyncContentLoader extends AsyncTask<ErrorHandler, Void, List<Detai
 
 	@Override
 	protected void onPostExecute(List<DetailItem> items) {
-		currentActivity.setListAdapter(stepContext.makeAdapter(currentActivity,
-				R.layout.single_item_caption_price, items));
-		
-		mProgressDlg.dismiss();
-	};
+		stepContext.afterLoadContent(currentActivity, items);
+		dismissProgressDialog();
+	}
+
 }

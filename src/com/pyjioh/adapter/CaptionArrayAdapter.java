@@ -12,23 +12,23 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class DetailItemArrayAdapter extends ArrayAdapter<DetailItem> {
+public class CaptionArrayAdapter extends ArrayAdapter<DetailItem> {
 
 	private final int resourceId;
-	 
-	public DetailItemArrayAdapter(Context context, int textViewResourceId,
+
+	public CaptionArrayAdapter(Context context, int textViewResourceId,
 			List<DetailItem> objects) {
 		super(context, textViewResourceId, objects);
-		
+
 		resourceId = textViewResourceId;
 	}
-	
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		DetailItem item = getItem(position);
 		if (item == null) 
 			return null;
-		
+
 		LayoutInflater inflater = (LayoutInflater) getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -42,12 +42,7 @@ public class DetailItemArrayAdapter extends ArrayAdapter<DetailItem> {
 		TextView textView = (TextView) view.findViewById(R.id.text1);
 		if (textView != null)
 			textView.setText(item.getCaption());
-		
-		textView = (TextView) view.findViewById(R.id.text2);
-		textView.setVisibility(TextView.VISIBLE);
-		if (textView != null)
-			textView.setText(item.getPrice());
-		
+
 		return view;
 	}
 

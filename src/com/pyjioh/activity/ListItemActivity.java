@@ -6,7 +6,6 @@ import com.pyjioh.core.ErrorHandler;
 import com.pyjioh.step.StepContext;
 
 import android.app.ListActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -16,12 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ListItem extends ListActivity {
+public class ListItemActivity extends ListActivity {
 
 	private StepContext stepContext;
 	private ErrorHandler errorHandler; 
 
 	private OnItemClickListener viewOnClick = new OnItemClickListener() {
+		
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 
@@ -33,10 +33,9 @@ public class ListItem extends ListActivity {
 			Toast.makeText(getApplicationContext(), itemCaption,
 					Toast.LENGTH_SHORT).show();
 
-			stepContext.selectItem(itemCaption);
-			startActivity(new Intent(ListItem.this,
-					ListItem.class));
+			stepContext.selectItem(ListItemActivity.this, itemCaption);
 		}
+		
 	};
 
 	/** Called when the activity is first created. */

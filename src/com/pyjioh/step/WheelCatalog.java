@@ -6,7 +6,7 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 
 import com.pyjioh.R;
-import com.pyjioh.adapter.DetailItemArrayAdapter;
+import com.pyjioh.adapter.CaptionPriceArrayAdapter;
 import com.pyjioh.core.DetailItem;
 
 public class WheelCatalog extends Step {
@@ -26,10 +26,10 @@ public class WheelCatalog extends Step {
 	}
 	
 	@Override
-	public ArrayAdapter<DetailItem> makeAdapter(Context context,
+	protected ArrayAdapter<DetailItem> makeAdapter(Context context,
 			int textViewResourceId, List<DetailItem> items) {
 
-		return new DetailItemArrayAdapter(context, textViewResourceId, items);
+		return new CaptionPriceArrayAdapter(context, textViewResourceId, items);
 	}
 	
 }
