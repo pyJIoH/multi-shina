@@ -12,23 +12,26 @@
 		android:layout_height="wrap_content"
 		android:scaleType="fitXY"
 	/>
-	<LinearLayout 
+	<RelativeLayout 
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent" 
 		android:layout_gravity="center" 
-		android:padding="42dip">
+		android:padding="45dip">
 		<Button 
+			android:layout_width="fill_parent"
 			android:id="@+id/btn_autoselection" 
 			android:text="Подбор шин и дисков по автомобилю" 
-			android:background="@layout/blackbutton" 
+			android:background="@drawable/blackbutton" 
 			style="@style/ButtonTextStyle"
 			android:onClick="onAutoSelectionClick"/>
 		<Button 
-			android:id="@+id/btn_about" 
+			android:layout_width="fill_parent"
 			android:text="О компании" 
-			android:background="@layout/blackbutton" 
-			style="@style/ButtonTextStyle"
-			android:onClick="onAboutClick"/>
-	</LinearLayout>
+			android:background="@drawable/blackbutton" 
+			style="@style/ButtonTextStyle" 
+			android:onClick="onAboutClick" 
+			android:id="@+id/btn_about" 
+			android:layout_below="@+id/btn_autoselection" />
+	</RelativeLayout>
 </LinearLayout>
