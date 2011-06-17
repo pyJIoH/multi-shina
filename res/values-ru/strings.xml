@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MultiShina</string>
+    
+    <string name="brand_step">Бренд</string>
+    <string name="model_step">Модель</string>
+    <string name="year_step">Год выпуска</string>
+    <string name="select_type_step">Показать список шин или дисков?</string>
+    <string name="tyre_size">Типоразмер шин</string>
+    <string name="wheel_size">Типоразмер дисков</string>
+    <string name="tyre_catalog">Выберите модель шины</string>
+    <string name="wheel_catalog">Выберите модель диска</string>
+    <string name="detail_item_step">Подробная информация</string>
+    
+    <string name="msg_loading">Загрузка...</string>
+    
+    <string name="mycart">Моя корзина</string>
+
+    <string name="about_text">Вас приветствует официальное Android приложение компании <b>«МУЛЬТИ-ШИНА»</b> <a href="http://multi-shina.ru/">http://multi-shina.ru/</a>. Оно поможет познакомиться с преимуществами нашей компании, узнать множество полезной информации по шинам и дискам, а также осуществить подбор и покупку колес, используя функцию интернет-магазина.</string>
+    <string name="mock">Характеристики:\nБренд: Maxxis\nМодель: MA-P1\nШирина профиля: 205.00мм\nСерия: 65.00%\nДиаметр: 16.00\'\nСезон: летняя\nШипы: нешип\nТип транспорта: легковой\nИндекс скорости: H\nИндекс нагрузки: 95</string>
+    
+</resources>

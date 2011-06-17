@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/background">
+	<ImageView 
+		android:id="@+id/imageView" 
+		android:src="@drawable/logo" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:scaleType="fitXY"
+	/>
+	<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" 
+		android:layout_gravity="center" 
+		android:paddingTop="38dip"
+		android:paddingLeft="38dip"
+		android:paddingRight="38dip">
+		<Button 
+			android:layout_width="fill_parent"
+			android:id="@+id/btn_autoselection" 
+			android:text="Подбор шин и дисков по автомобилю" 
+			android:background="@drawable/blackbutton" 
+			style="@style/ButtonTextStyle"
+			android:onClick="onAutoSelectionClick"/>
+		<Button 
+			android:layout_width="fill_parent"
+			android:text="О компании" 
+			android:background="@drawable/blackbutton" 
+			style="@style/ButtonTextStyle" 
+			android:onClick="onAboutClick" 
+			android:id="@+id/btn_about"/>
+	</LinearLayout>
+</LinearLayout>
