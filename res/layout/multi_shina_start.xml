@@ -12,12 +12,14 @@
 		android:layout_height="wrap_content"
 		android:scaleType="fitXY"
 	/>
-	<RelativeLayout 
+	<LinearLayout 
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent" 
 		android:layout_gravity="center" 
-		android:padding="45dip">
+		android:paddingTop="38dip"
+		android:paddingLeft="38dip"
+		android:paddingRight="38dip">
 		<Button 
 			android:layout_width="fill_parent"
 			android:id="@+id/btn_autoselection" 
@@ -31,7 +33,6 @@
 			android:background="@drawable/blackbutton" 
 			style="@style/ButtonTextStyle" 
 			android:onClick="onAboutClick" 
-			android:id="@+id/btn_about" 
-			android:layout_below="@+id/btn_autoselection" />
-	</RelativeLayout>
+			android:id="@+id/btn_about"/>
+	</LinearLayout>
 </LinearLayout>
