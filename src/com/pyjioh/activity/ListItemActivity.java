@@ -11,7 +11,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class ListItemActivity extends BaseLoaderActivity {
 
-	private ListView listView = (ListView) findViewById(R.id.listView);
+	private ListView listView;
 	private OnItemClickListener viewOnClick = new OnItemClickListener() {
 		
 		public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -32,6 +32,7 @@ public class ListItemActivity extends BaseLoaderActivity {
 
 	protected void init() {
 		super.init();
+		listView = (ListView) findViewById(R.id.listView);
 		listView.setTextFilterEnabled(true);
 		listView.setOnItemClickListener(viewOnClick);
 	};
