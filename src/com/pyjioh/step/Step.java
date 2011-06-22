@@ -33,7 +33,7 @@ import android.widget.ArrayAdapter;
 
 import com.pyjioh.R;
 import com.pyjioh.activity.BaseLoaderActivity;
-import com.pyjioh.activity.ListItemActivity;
+import com.pyjioh.activity.ListViewActivity;
 import com.pyjioh.adapter.CaptionArrayAdapter;
 import com.pyjioh.core.DetailItem;
 import com.pyjioh.core.ErrorHandler;
@@ -175,7 +175,7 @@ public abstract class Step {
 	}
 
 	public Class<?> getActivityClass() {
-		return ListItemActivity.class;
+		return ListViewActivity.class;
 	}
 
 	public void afterLoadContent(Activity activity, List<DetailItem> items) {

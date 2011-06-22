@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ListItemActivity extends BaseLoaderActivity {
+public class ListViewActivity extends BaseLoaderActivity {
 
 	private ListView listView;
 	private OnItemClickListener viewOnClick = new OnItemClickListener() {
@@ -25,7 +25,7 @@ public class ListItemActivity extends BaseLoaderActivity {
 			Toast.makeText(getApplicationContext(), itemCaption,
 					Toast.LENGTH_SHORT).show();
 
-			stepContext.selectItem(ListItemActivity.this, itemCaption);
+			stepContext.selectItem(ListViewActivity.this, itemCaption);
 		}
 		
 	};
