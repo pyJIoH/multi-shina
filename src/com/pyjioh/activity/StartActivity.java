@@ -36,7 +36,7 @@ public class StartActivity extends Activity {
 //	}
 
 	public void onAutoSelectionClick(View v) {
-		startActivity(new Intent(this, ListItemActivity.class));
+		startActivity(new Intent(this, ListViewActivity.class));
 	}
 
 	public void onAboutClick(View v) {
