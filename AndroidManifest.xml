@@ -4,12 +4,9 @@
 	<uses-sdk android:minSdkVersion="4" />
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 	<application android:icon="@drawable/ic_launcher" android:label="@string/app_name">
-		<activity android:name=".activity.ListItemActivity"
-			android:label="@string/app_name">
-		</activity>
-		<activity android:name=".activity.DetailItemActivity"
-			android:label="@string/app_name">
-		</activity>
+		<activity android:name=".activity.BaseLoaderActivity" />
+		<activity android:name=".activity.ListItemActivity" />
+		<activity android:name=".activity.DetailItemActivity" />
 		<activity android:name=".activity.AboutActivity"
 			android:label="@string/app_name">
 		</activity>
