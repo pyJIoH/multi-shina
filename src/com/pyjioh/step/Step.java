@@ -25,7 +25,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,6 +32,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import com.pyjioh.R;
+import com.pyjioh.activity.BaseLoaderActivity;
 import com.pyjioh.activity.ListItemActivity;
 import com.pyjioh.adapter.CaptionArrayAdapter;
 import com.pyjioh.core.DetailItem;
@@ -179,8 +179,8 @@ public abstract class Step {
 	}
 
 	public void afterLoadContent(Activity activity, List<DetailItem> items) {
-		((ListActivity) activity).setListAdapter(makeAdapter(activity,
-				R.layout.single_item_caption_price, items));
+		((BaseLoaderActivity) activity).getListView().setAdapter(makeAdapter(activity,
+				R.layout.single_item_caption_price, items)); 
 	}
 
 }
