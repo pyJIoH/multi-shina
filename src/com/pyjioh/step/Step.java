@@ -36,7 +36,7 @@ import com.pyjioh.activity.BaseLoaderActivity;
 import com.pyjioh.activity.ListViewActivity;
 import com.pyjioh.adapter.CaptionArrayAdapter;
 import com.pyjioh.core.DetailItem;
-import com.pyjioh.core.ErrorHandler;
+import com.pyjioh.core.ErrorLogger;
 import com.pyjioh.internet.WebManager;
 
 /**
@@ -102,18 +102,18 @@ public abstract class Step {
 			item.setImageUrl(element.getAttribute("img"));
 			item.setLink(element.getAttribute("link"));
 			item.setPrice(element.getAttribute("price"));
-
-			if (isNeedDownloadImage() && item.getImageUrl() != null)
-				item.setBitmap(downloadBitmap(item.getImageUrl()));
+			
+			downloadBitmapIfNeed(item);
+			
 			items.add(item);
 		}
 	}
 
-	protected boolean isNeedDownloadImage() {
-		return false;
+	protected void downloadBitmapIfNeed(DetailItem item) {
+		
 	}
 
-	private Bitmap downloadBitmap(String url) {
+	protected Bitmap downloadBitmap(String url) {
 		final DefaultHttpClient client = new DefaultHttpClient();
 		final HttpGet getRequest = new HttpGet(url);
 
@@ -121,7 +121,7 @@ public abstract class Step {
 			HttpResponse response = client.execute(getRequest);
 			final int statusCode = response.getStatusLine().getStatusCode();
 			if (statusCode != HttpStatus.SC_OK) {
-				Log.w(ErrorHandler.LOG_TAG, "Error " + statusCode
+				Log.w(ErrorLogger.LOG_TAG, "Error " + statusCode
 						+ " while retrieving bitmap from " + url);
 				return null;
 			}
@@ -143,7 +143,7 @@ public abstract class Step {
 			}
 		} catch (Exception e) {
 			getRequest.abort();
-			Log.w(ErrorHandler.LOG_TAG, "Error while retrieving bitmap from "
+			Log.w(ErrorLogger.LOG_TAG, "Error while retrieving bitmap from "
 					+ url, e);
 		} finally {
 			// if (client != null) {

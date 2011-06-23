@@ -28,10 +28,11 @@ public class ItemInfo extends Step {
 	}
 
 	@Override
-	protected boolean isNeedDownloadImage() {
-		return true;
+	protected void downloadBitmapIfNeed(DetailItem item) {
+		if (item.getImageUrl() != null)
+			item.setBitmap(downloadBitmap(item.getImageUrl()));
 	}
-
+	
 	@Override
 	public Class<?> getActivityClass() {
 		return DetailItemActivity.class;
