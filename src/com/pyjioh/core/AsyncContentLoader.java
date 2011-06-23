@@ -51,11 +51,13 @@ public class AsyncContentLoader extends AsyncTask<ErrorLogger, Void, List<Detail
 
 	@Override
 	protected void onPostExecute(List<DetailItem> items) {
-		dismissProgressDialog();
-		if (hasError)
+		if (hasError) {
+			dismissProgressDialog();
 			currentActivity.showErrorMessage();
-		else
+		} else {
 			stepContext.afterLoadContent(currentActivity, items);
+			dismissProgressDialog();
+		}
 	}
 
 }
