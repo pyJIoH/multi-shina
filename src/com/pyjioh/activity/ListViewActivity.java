@@ -30,8 +30,8 @@ public class ListViewActivity extends BaseLoaderActivity {
 		
 	};
 
-	protected void init() {
-		super.init();
+	protected void initializeAndLoad() {
+		super.initializeAndLoad();
 		listView = (ListView) findViewById(R.id.listView);
 		listView.setTextFilterEnabled(true);
 		listView.setOnItemClickListener(viewOnClick);

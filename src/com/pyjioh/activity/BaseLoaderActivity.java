@@ -24,22 +24,22 @@ public abstract class BaseLoaderActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_item_view);
-
-		init();
-		refreshCaption();
-		refreshContent();
+		initializeAndLoad();
 	}
 
-	protected void init() {
+	protected void initializeAndLoad() {
 		stepContext = StepContext.getInstance();
 		errorLogger = new ErrorLogger();
+		
+		loadCaption();
+		loadContent();
 	}
 
-	protected void refreshContent() {
+	private void loadContent() {
 		new AsyncContentLoader(this).execute(errorLogger);
 	}
 
-	protected void refreshCaption() {
+	private void loadCaption() {
 		TextView captionText = (TextView) findViewById(R.id.captionText);
 		if (captionText != null)
 			captionText.setText(stepContext.getCaptionId());
