@@ -32,23 +32,24 @@ public class ItemInfo extends Step {
 		if (item.getImageUrl() != null)
 			item.setBitmap(downloadBitmap(item.getImageUrl()));
 	}
-	
+
 	@Override
 	public Class<?> getActivityClass() {
 		return DetailItemActivity.class;
 	}
 
 	@Override
-	public void afterLoadContent(Activity activity, List<DetailItem> items) {
+	public void loadContentToActivity(List<DetailItem> items, Activity activity) {
 		DetailItem item = items.get(0);
 		if (item != null) {
 			ImageView imageItem = (ImageView) activity
 					.findViewById(R.id.imageItem);
-			
-			if (item.getBitmap() == null)
-				imageItem.setImageResource(R.drawable.noimage);
-			else
-				imageItem.setImageBitmap(item.getBitmap());
+
+			if (imageItem != null)
+				if (item.getBitmap() == null)
+					imageItem.setImageResource(R.drawable.noimage);
+				else
+					imageItem.setImageBitmap(item.getBitmap());
 
 			TextView textInfo = (TextView) activity.findViewById(R.id.textInfo);
 			if (textInfo != null)
