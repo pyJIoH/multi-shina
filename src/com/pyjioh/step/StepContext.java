@@ -61,8 +61,8 @@ public class StepContext {
 			currentStep = steps.get(steps.size() - 1);
 	}
 
-	public void afterLoadContent(Activity activity, List<DetailItem> items) {
-		currentStep.afterLoadContent(activity, items);
+	public void loadContentToActivity(List<DetailItem> items, Activity activity) {
+		currentStep.loadContentToActivity(items, activity);
 	}
 
 }

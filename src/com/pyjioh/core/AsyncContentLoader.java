@@ -55,7 +55,7 @@ public class AsyncContentLoader extends AsyncTask<ErrorLogger, Void, List<Detail
 			dismissProgressDialog();
 			currentActivity.showErrorMessage();
 		} else {
-			stepContext.afterLoadContent(currentActivity, items);
+			stepContext.loadContentToActivity(items, currentActivity);
 			dismissProgressDialog();
 		}
 	}

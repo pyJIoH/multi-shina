@@ -40,7 +40,10 @@ import com.pyjioh.core.ErrorLogger;
 import com.pyjioh.internet.WebManager;
 
 /**
- * Use <b>State</b> pattern for application wizard style
+ * Use <b>State</b> pattern for application wizard style. The state's (steps)
+ * methods <b>next()</b> and <b>back()</b> has a reference to the context object
+ * and is able to change its state. <b>StepContext</b> contains current Step's
+ * implementation.
  * */
 
 public abstract class Step {
@@ -102,15 +105,15 @@ public abstract class Step {
 			item.setImageUrl(element.getAttribute("img"));
 			item.setLink(element.getAttribute("link"));
 			item.setPrice(element.getAttribute("price"));
-			
+
 			downloadBitmapIfNeed(item);
-			
+
 			items.add(item);
 		}
 	}
 
 	protected void downloadBitmapIfNeed(DetailItem item) {
-		
+
 	}
 
 	protected Bitmap downloadBitmap(String url) {
@@ -146,9 +149,8 @@ public abstract class Step {
 			Log.w(ErrorLogger.LOG_TAG, "Error while retrieving bitmap from "
 					+ url, e);
 		} finally {
-			// if (client != null) {
-			// client.close();
-			// }
+			if (client != null)
+				client.getConnectionManager().shutdown();
 		}
 		return null;
 	}
@@ -169,6 +171,7 @@ public abstract class Step {
 
 	abstract public int getCaptionId();
 
+	// makeAdapter() is creation method
 	protected ArrayAdapter<DetailItem> makeAdapter(Context context,
 			int textViewResourceId, List<DetailItem> items) {
 		return new CaptionArrayAdapter(context, textViewResourceId, items);
@@ -178,9 +181,11 @@ public abstract class Step {
 		return ListViewActivity.class;
 	}
 
-	public void afterLoadContent(Activity activity, List<DetailItem> items) {
-		((BaseLoaderActivity) activity).getListView().setAdapter(makeAdapter(activity,
-				R.layout.single_item_caption_price, items)); 
+	public void loadContentToActivity(List<DetailItem> items, Activity activity) {
+		ArrayAdapter<DetailItem> adapter = makeAdapter(activity,
+				R.layout.single_item_caption_price, items);
+		
+		((BaseLoaderActivity) activity).getListView().setAdapter(adapter);
 	}
 
 }
