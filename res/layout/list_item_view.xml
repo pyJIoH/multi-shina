@@ -23,5 +23,6 @@
     <ListView 
 		android:id="@+id/listView" 
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+		android:layout_height="wrap_content" 
+		android:background = "@drawable/list_view_shape" />
  </LinearLayout>
