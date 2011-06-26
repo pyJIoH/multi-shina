@@ -3,7 +3,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" 
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	android:layout_height="fill_parent"
+	android:background="@color/background">
     <ImageView 
 		android:id="@+id/imageView" 
     	android:src="@drawable/logo" 
@@ -23,6 +24,5 @@
     <ListView 
 		android:id="@+id/listView" 
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:background = "@drawable/list_view_shape" />
+		android:layout_height="wrap_content" />
  </LinearLayout>
